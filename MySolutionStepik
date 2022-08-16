@@ -1,0 +1,26 @@
+import java.util.Scanner;
+//import java.util.Arrays;
+class MySolution {
+    public static void main(String[] args) {
+Scanner sc = new Scanner (System.in);
+String nums = sc.nextLine(); //вводим строку
+int minSumm;//переменная для минимальной суммы
+String[] numbers = nums.split(" "); //создаем массив из строки через пробел
+int[] arr = new int[numbers.length]; // создаем массив типа int с длиной строковаго массива
+for (int i = 0; i < numbers.length; i++){
+    arr[i] = Integer.parseInt(numbers[i]);// заполняеи int массив числами из строкового массива
+}
+    if(arr.length <= 2){
+        minSumm = 0; //если длина массива меньше 3х, тогда минимальная сумма = 0
+        System.out.println(minSumm);
+    }else{
+        minSumm = arr[0] + arr[2];
+        for (int i = 3; i < arr.length; i++) {
+            if (minSumm > arr[i] + arr[i - 2]) {
+                minSumm = arr[i] + arr[i - 2];// находим минимальную сумму
+            }
+        }
+        System.out.println(minSumm);
+    }
+}
+    }
